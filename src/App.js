@@ -9,9 +9,12 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+
     <PantallaPrincipal></PantallaPrincipal>
     <Cartas></Cartas>
     <PantallaJuego></PantallaJuego>
+    <PantallaFinal></PantallaFinal>
+    <Botones></Botones>
     
     </div>
   )
