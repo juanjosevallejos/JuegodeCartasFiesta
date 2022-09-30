@@ -7,7 +7,7 @@ export default function Cartas(props){
                     <i className="fas fa-question"></i>
                 </div>
                 <div className="cartas--back middle">
-                    <i className={props.Symbol}></i>
+                    <i className={props.symbol}></i>
                 </div>
             </div>
 
