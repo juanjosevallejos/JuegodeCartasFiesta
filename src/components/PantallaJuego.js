@@ -23,6 +23,8 @@ export default function PantallaJuego(props){
             <div className="text-center">
                 <Botones label="Reiniciar juego" action=""/>
             </div>
-            </div>
+        </div>
     )
 }
+
+
