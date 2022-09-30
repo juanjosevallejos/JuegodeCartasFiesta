@@ -1,6 +1,17 @@
 export default function Cartas(props){
 
     return(
-        <div></div>
+        <div className="cartas rotate" >
+            <div className="cartas--inner">
+                <div className="cartas--front middle">
+                    <i className="fas fa-question"></i>
+                </div>
+                <div className="cartas--back middle">
+                    <i className={props.symbol}></i>
+                </div>
+            </div>
+
+
+        </div>
     )
 }
