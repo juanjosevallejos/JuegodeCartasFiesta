@@ -1,5 +1,5 @@
-import Botones from "./Components/Botones.js";
-import Cartas from "./components/Cartas.js";
+import Botones from "./Botones";
+import Cartas from "./Cartas";  
 
 export default function PantallaJuego(props){
 
@@ -18,6 +18,8 @@ export default function PantallaJuego(props){
             <div className="PantallaJuego--cartas grid grid-4">
                <Cartas symbol="fas fa-horse" />
                <Cartas symbol="fas fa-tractor" />
+               <Cartas symbol="fas fa-tractor" />
+
 
             </div>
             <div className="text-center">

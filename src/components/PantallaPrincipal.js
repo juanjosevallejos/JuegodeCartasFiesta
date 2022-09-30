@@ -12,7 +12,7 @@ export default function PantallaPrincipal(props){
             <p>Seleccione el nivel</p>
             <Botones label={levelText[props.level]} action={props.changeDifficulty}></Botones>
             <br></br>
-            <Botones label="iniciar juego" action={ () => props.setSart(1) }></Botones>
+            <Botones label="iniciar juego" action={ () => props.setStart(1) }></Botones>
          </div>
          <p>made with<span className="logo-react"><i className="fab fa-react"></i></span></p>
         </div>
