@@ -1,7 +1,17 @@
 import Botones from "./Botones";
-import Cartas from "./Cartas";  
+import Cartas from "./Cartas"; 
+import AleatorioCartas from "../logica/AleatorioCartas"
+import { useEffect, useState } from "react";
 
 export default function PantallaJuego(props){
+
+    const [cartasArr, setCartasArr] = useState([])
+
+
+    useEffect( () => {
+        setCartasArr(AleatorioCartas( props.numCartas ))
+    }, [props.numCartas])
+
 
 
     return(
@@ -16,10 +26,19 @@ export default function PantallaJuego(props){
                 </div>
             </div>
             <div className="PantallaJuego--cartas grid grid-4">
-               <Cartas symbol="fas fa-horse" />
-               <Cartas symbol="fas fa-tractor" />
-               <Cartas symbol="fas fa-tractor" />
-
+               {
+                    cartasArr
+                        .sort((a,b) =>a.id - b.id )
+                        .map( Cartas => ) {
+                            return <Cartas>
+                                key={Cartas.id}
+                                id={Cartas.id}
+                                rotate={Cartas.rotate}
+                                Simbolos={Cartas.Simbolos}
+                                bind={Cartas.bind}
+                            </Cartas>
+                        }
+               }
 
             </div>
             <div className="text-center">
