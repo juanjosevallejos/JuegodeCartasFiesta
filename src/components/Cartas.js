@@ -1,7 +1,7 @@
 export default function Cartas(props){
 
     return(
-        <div className="cartas rotate" >
+        <div className={`cartas ${props.rotate ? 'rotate' : ''} `} >
             <div className="cartas--inner">
                 <div className="cartas--front middle">
                     <i className="fas fa-question"></i>
