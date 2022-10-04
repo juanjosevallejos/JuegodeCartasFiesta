@@ -2,6 +2,10 @@ import React, {useState} from 'react';
 import PantallaPrincipal from './components/PantallaPrincipal';
 import PantallaJuego from './components/PantallaJuego';
 import PantallaFinal from './components/PantallaFinal';
+<<<<<<< HEAD
+=======
+
+>>>>>>> 783999d8688dfda50ee2b5965d8c1fb0a5602af2
 
 function App() {
 
@@ -46,7 +50,7 @@ function App() {
 
   return (
 
-    <div className='container middle'> 
+    <div> 
 
     { stateGame === 0 ?
       <PantallaPrincipal 
