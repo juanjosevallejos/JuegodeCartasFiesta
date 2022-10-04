@@ -149,12 +149,12 @@ body {
   border-radius: 20px;
 }
 
-.cartas--inner i {
+.cartas--inner  {
   font-size: 2em;
 }
 
 @media only screen and (min-width: 992px) {
-  .cartas--inner i {
+  .cartas--inner  {
     font-size: 4em;
   }
 }
@@ -184,7 +184,7 @@ body {
 }
 
 @media only screen and (min-width: 992px) {
-  .card {
+  .cartas {
     height: 250px;
   }
 }
