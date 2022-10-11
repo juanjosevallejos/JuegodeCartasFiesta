@@ -3,8 +3,6 @@ import PantallaPrincipal from './components/PantallaPrincipal';
 import PantallaJuego from './components/PantallaJuego';
 import PantallaFinal from './components/PantallaFinal';
 
-
-
 function App() {
 
 
@@ -49,7 +47,7 @@ function App() {
 
   return (
 
-    <div className='container middle'> 
+    <div> 
 
     { stateGame === 0 ?
       <PantallaPrincipal 

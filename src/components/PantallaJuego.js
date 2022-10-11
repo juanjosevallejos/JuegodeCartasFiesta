@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 
 export default function PantallaJuego({numCartas}){
 
+    
     const [cartasArr, setCartasArr] = useState([])
 
 
@@ -24,7 +25,31 @@ export default function PantallaJuego({numCartas}){
 
 
 
+        setCartasArr ( AleatorioCartas ( numCartas ) )
+    } [numCartas]
 
+
+    const rotate = (id,fixed) => {
+        setCartasArr(prevArr => {
+            prevArr[id].rotate = true;
+            prevArr[id].validating = 1;
+            return[...prevArr]
+        })
+    }
+
+    
+
+
+        setCartasArr( AleatorioCartas ( numCartas ) )
+         [numCartas]
+
+    const rotate = (id,fixed) => {
+        setCartasArr(prevArr => {
+            prevArr[id].rotate = true;
+            prevArr[id].validateing = 1;
+            return[...prevArr]
+        })
+    }
 
     return(
         <div className="PantallaJuego">
@@ -37,14 +62,13 @@ export default function PantallaJuego({numCartas}){
                 <p>Tiempo</p>
                 </div>
             </div>
+
             <div className="PantallaJuego--cartas grid grid-4">
-            
-                {
                     cartasArr
                         .sort( (a,b) =>a.id - b.id )
-                        .map( (cartas, key) => 
+                        .map( (cartas, key) =>  
                             (<Cartas
-                                    key={cartas.key}
+                                    key={key}
                                     id={cartas.id}
                                     rotate={cartas.rotate}
                                     Simbolos={cartas.Simbolos}
@@ -59,6 +83,11 @@ export default function PantallaJuego({numCartas}){
 
 
 
+
+                        )
+               }
+
+            </div>   
             <div className="text-center">
                 <Botones label="Reiniciar juego" action={()=> {}}/>
             </div>
