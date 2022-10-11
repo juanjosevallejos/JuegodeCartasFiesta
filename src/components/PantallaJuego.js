@@ -1,16 +1,28 @@
 import Botones from "./Botones";
 import Cartas from "./Cartas"; 
-import AleatorioCartas from "../logica/AleatorioCartas"
+import AleatorioCartas from "../logica/AleatorioCartas";
 import { useEffect, useState } from "react";
 
-export default function PantallaJuego(props){
+
+export default function PantallaJuego({numCartas}){
 
     const [cartasArr, setCartasArr] = useState([])
 
 
     useEffect( () => {
-        setCartasArr(AleatorioCartas( props.numCartas ))
-    }, [props.numCartas])
+        setCartasArr(AleatorioCartas( numCartas ))
+    }, [numCartas])
+
+
+    const rotate= (id, fixed) => {
+        setCartasArr(prevArr => { 
+            prevArr[id].rotate = true;
+            prevArr[id].validating = 1;
+            return[...prevArr]
+         })
+    }
+
+
 
 
 
@@ -26,23 +38,29 @@ export default function PantallaJuego(props){
                 </div>
             </div>
             <div className="PantallaJuego--cartas grid grid-4">
-               {
+            
+                {
                     cartasArr
-                        .sort((a,b) =>a.id - b.id )
-                        .map( Cartas => ) {
-                            return <Cartas>
-                                key={Cartas.id}
-                                id={Cartas.id}
-                                rotate={Cartas.rotate}
-                                Simbolos={Cartas.Simbolos}
-                                bind={Cartas.bind}
-                            </Cartas>
-                        }
-               }
-
+                        .sort( (a,b) =>a.id - b.id )
+                        .map( (cartas, key) => 
+                            (<Cartas
+                                    key={cartas.key}
+                                    id={cartas.id}
+                                    rotate={cartas.rotate}
+                                    Simbolos={cartas.Simbolos}
+                                    bind={cartas.bind}
+                                    fixed={cartas.fixed}
+                                    actionRotate={rotate}
+                                />)
+                        )    
+                } 
+              
             </div>
+
+
+
             <div className="text-center">
-                <Botones label="Reiniciar juego" action=""/>
+                <Botones label="Reiniciar juego" action={()=> {}}/>
             </div>
         </div>
     )
