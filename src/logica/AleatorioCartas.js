@@ -1,4 +1,4 @@
-import Simbolos from "./Simbolos";
+import {dataIcons} from "../logica/Simbolos";
 
 
 
@@ -6,17 +6,17 @@ import Simbolos from "./Simbolos";
 export default function AleatorioCartas(numCartas){
     const halfCartas = numCartas / 2
     const arr = []
-    let i=0,j=0
+    let i=0, j=0
 
-    while ( i < numCartas ){
+    while (i < numCartas ){
         if( j === halfCartas ) j = 0
         let random = Math.floor(Math.random() * numCartas);
 
         
-         if( !arr.some(item => item.id === random)){
+         if( arr.some(item => item.id === random)){
             arr.push({
                 id: random,
-                Simbolos: Simbolos[j],
+                symbol: dataIcons[j],
                 bind: j,
                 rotate: false, 
                 validating: 0,
@@ -25,8 +25,11 @@ export default function AleatorioCartas(numCartas){
             i++
             j++ 
             
-    }
+        }
 
+    }
+    return arr
 }
-return arr
-}
+
+
+    

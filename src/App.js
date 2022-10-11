@@ -45,10 +45,12 @@ function App() {
     setStateGame(value)
   }
 
+
+  
   return (
-
-    <div> 
-
+    
+    <div className='container middle'> 
+    
     { stateGame === 0 ?
       <PantallaPrincipal 
       level={level} 
