@@ -8,7 +8,9 @@
 }
 
 body {
-  background-color: #3b27b7;
+  background-image: url(https://th.bing.com/th/id/OIP.9-RleLkuqNIwu3xZNrNvSgHaHa?pid=ImgDet&rs=1);
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .container {
@@ -70,13 +72,6 @@ body {
   padding: 20px 10px;
 }
 
-.logo-react {
-  color: #cdff3f;
-  -webkit-animation: spin 4s linear infinite;
-          animation: spin 4s linear infinite;
-  position: absolute;
-  margin: 0 10px;
-}
 
 @-webkit-keyframes spin {
   100% {

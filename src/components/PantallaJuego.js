@@ -1,8 +1,26 @@
 import Botones from "./Botones";
-import Cartas from "./Cartas";  
+import Cartas from './Cartas';
+import AleatorioCartas from "../logica/AleatorioCartas"
+import { useState,useEffect } from "react";
 
-export default function PantallaJuego(props){
 
+export default function PantallaJuego({numCartas}){
+
+    
+    const [cartasArr, setCartasArr] = useState([])
+
+
+    useEffect( () => {
+        setCartasArr( AleatorioCartas ( numCartas ) )
+    }, [numCartas])
+
+    const rotate = (id,fixed) => {
+        setCartasArr(prevArr => {
+            prevArr[id].rotate = true;
+            prevArr[id].validateing = 1;
+            return[...prevArr]
+        })
+    }
 
     return(
         <div className="PantallaJuego">
@@ -15,18 +33,29 @@ export default function PantallaJuego(props){
                 <p>Tiempo</p>
                 </div>
             </div>
+
             <div className="PantallaJuego--cartas grid grid-4">
-               <Cartas symbol="fas fa-horse" />
-               <Cartas symbol="fas fa-tractor" />
-               <Cartas symbol="fas fa-tractor" />
+            {
+                    cartasArr
+                        .sort( (a,b) =>a.id - b.id )
+                        .map( (cartas, key) =>  
+                            (<Cartas
+                                    key={key}
+                                    id={cartas.id}
+                                    rotate={cartas.rotate}
+                                    Simbolos={cartas.Simbolos}
+                                    bind={cartas.bind}
+                                    fixed={cartas.fixed}
+                                    actionRotate={rotate}
+                                />)
+                        )
+               }
 
-
-            </div>
+            </div>   
             <div className="text-center">
-                <Botones label="Reiniciar juego" action=""/>
+                <Botones label="Reiniciar juego" action={()=> {}}/>
             </div>
         </div>
     )
 }
-
 
