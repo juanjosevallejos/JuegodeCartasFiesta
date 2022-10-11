@@ -13,12 +13,55 @@ export const dataIcons = [
             },
             {
                 id: 3,
-                icon: <FaHorse/>,
+                icon: <FaAppleAlt/>,
             },
             {
                 id: 4,
-                icon: <FaHorse/>,
+                icon: <FaBug/>,
+            },
+            
+            {
+                id:5,
+                icon: <FaClinicMedical/>
+            },
+            {
+                id:6,
+                icon: <FaAward/>
+
+            },
+            {
+                id:7,
+                icon:<FaTractor/>
+
+            },
+            {
+                id:8,
+                icon:<FaBomb/>
+
+            },
+            {
+                id:9,
+                icon:<FaLock/>
+
+            },
+            {
+                id:10,
+                icon:<FaArchway/>
+
+            },
+            {
+                id:11,
+                icon:<FaPalette/>
+
+            },
+            {
+                id:12,
+                icon:<FaCoffee/>
+
             },
         ]
     },   
 ]
+
+
+export default dataIcons;

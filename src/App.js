@@ -2,12 +2,9 @@ import React, {useState} from 'react';
 import PantallaPrincipal from './components/PantallaPrincipal';
 import PantallaJuego from './components/PantallaJuego';
 import PantallaFinal from './components/PantallaFinal';
-<<<<<<< HEAD
-=======
-
->>>>>>> 783999d8688dfda50ee2b5965d8c1fb0a5602af2
 
 function App() {
+
 
   const [ level,setLevel ] = useState(0)
   const [ stateGame, setStateGame ] = useState(0)
@@ -69,3 +66,4 @@ function App() {
 }
 
 export default App;
+  
