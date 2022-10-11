@@ -1,7 +1,7 @@
 import Botones from "./Botones";
-import Cartas from "./Cartas"; 
-import AleatorioCartas from "../logica/AleatorioCartas";
-import { useEffect, useState } from "react";
+import Cartas from './Cartas';
+import AleatorioCartas from "../logica/AleatorioCartas"
+import { useState,useEffect } from "react";
 
 
 export default function PantallaJuego({numCartas}){
@@ -11,37 +11,8 @@ export default function PantallaJuego({numCartas}){
 
 
     useEffect( () => {
-        setCartasArr(AleatorioCartas( numCartas ))
-    }, [numCartas])
-
-
-    const rotate= (id, fixed) => {
-        setCartasArr(prevArr => { 
-            prevArr[id].rotate = true;
-            prevArr[id].validating = 1;
-            return[...prevArr]
-         })
-    }
-
-
-
-        setCartasArr ( AleatorioCartas ( numCartas ) )
-    } [numCartas]
-
-
-    const rotate = (id,fixed) => {
-        setCartasArr(prevArr => {
-            prevArr[id].rotate = true;
-            prevArr[id].validating = 1;
-            return[...prevArr]
-        })
-    }
-
-    
-
-
         setCartasArr( AleatorioCartas ( numCartas ) )
-         [numCartas]
+    }, [numCartas])
 
     const rotate = (id,fixed) => {
         setCartasArr(prevArr => {
@@ -64,6 +35,7 @@ export default function PantallaJuego({numCartas}){
             </div>
 
             <div className="PantallaJuego--cartas grid grid-4">
+            {
                     cartasArr
                         .sort( (a,b) =>a.id - b.id )
                         .map( (cartas, key) =>  
@@ -76,14 +48,6 @@ export default function PantallaJuego({numCartas}){
                                     fixed={cartas.fixed}
                                     actionRotate={rotate}
                                 />)
-                        )    
-                } 
-              
-            </div>
-
-
-
-
                         )
                }
 
@@ -94,5 +58,4 @@ export default function PantallaJuego({numCartas}){
         </div>
     )
 }
-
 
