@@ -6,7 +6,7 @@ import PantallaFinal from './components/PantallaFinal';
 function App() {
 
 
-  const [ level,setLevel ] = useState(0)
+  const [ level,setLevel ] = useState(1)
   const [ stateGame, setStateGame ] = useState(0)
   
   const changeDifficulty = () => { 

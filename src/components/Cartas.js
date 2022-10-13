@@ -20,7 +20,7 @@ const changeFrente = () => {
 
 
                 {frente && (<div className="cartas--back middle">
-                    <i className={props.symbol}></i>
+                    <i className={props.Simbolos}></i>
                 </div>)}
                 
             

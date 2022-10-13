@@ -17,7 +17,7 @@ export default function PantallaJuego({numCartas}){
     const rotate = (id,fixed) => {
         setCartasArr(prevArr => {
             prevArr[id].rotate = true;
-            prevArr[id].validateing = 1;
+            prevArr[id].validating = 1;
             return[...prevArr]
         })
     }
@@ -38,18 +38,19 @@ export default function PantallaJuego({numCartas}){
             {
                     cartasArr
                         .sort( (a,b) =>a.id - b.id )
-                        .map( (cartas, key) =>  
-                            (<Cartas
-                                    key={key}
+                        .map( cartas => {  
+                        return    <Cartas
+                                    key={cartas.id}
                                     id={cartas.id}
                                     rotate={cartas.rotate}
-                                    Simbolos={cartas.Simbolos}
+                                    Simbolos={cartas.dataIcons}
                                     bind={cartas.bind}
                                     fixed={cartas.fixed}
                                     actionRotate={rotate}
-                                />)
-                        )
-               }
+                                    // onClick={changeFrente}
+                                />
+                        })
+            }
 
             </div>   
             <div className="text-center">
