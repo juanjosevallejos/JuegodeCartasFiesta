@@ -165,13 +165,10 @@ body {
   color: #202979;
 }
 
-.cartas--back {
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(https://th.bing.com/th/id/OIP._F5cR6KbIc0a6it23Fb08QHaF3?pid=ImgDet&rs=1);
-  height: 250px;
-  
 
+.cartas--back {
+  background-color: dodgerblue;
+  color: white;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
