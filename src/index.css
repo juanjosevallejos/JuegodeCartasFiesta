@@ -166,16 +166,13 @@ body {
 }
 
 .cartas--back {
-  background-repeat: no-repeat;
-  background-size: cover;
-  height: 250px;
-  
-
+  background-color: rgb(156, 129, 255);
+  color:white;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
 
-.rotate:active .cartas--inner:active {
+.rotate .cartas--inner {
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
 }
@@ -191,3 +188,9 @@ body {
   color: #fff;
 }
 /*# sourceMappingURL=index.css.map */
+
+.d-none{
+  display: none;
+}
+
+

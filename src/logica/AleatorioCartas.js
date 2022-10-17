@@ -1,4 +1,4 @@
-import {dataIcons} from "./Simbolos";
+import Simbolos from "./Simbolos"
 
 
 
@@ -16,7 +16,7 @@ export default function AleatorioCartas(numCartas){
          if( !arr.some(item => item.id === random)){
             arr.push({
                 id: random,
-                simbolos: dataIcons[j],
+                symbol: Simbolos[j],
                 bind: j,
                 rotate: false, 
                 validating: 0,
