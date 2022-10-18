@@ -29,6 +29,11 @@ function App() {
     2: 24
   }
 
+  const restartGame = () =>{
+      setStateGame(0)
+      setLevel(0)
+      resetTime(0)
+  }
 
 
 
@@ -49,7 +54,7 @@ function App() {
 
   const changeStateGame = (value) => {
     setStateGame(value)
-    if(value === 1) playTimer(30)
+    if(value === 1) playTimer()
   }
 
 const playTimer = () => {
@@ -58,14 +63,22 @@ const playTimer = () => {
     setIntervalId(0)
   }
   
-  const newIntervalId = setInterval ( ()=>{
+
+  const newIntervalId = setInterval ( ()=> {
     setMiliSeconds ( miliSeconds => miliSeconds + 1000)
   }, 1000)
 
   setIntervalId(newIntervalId)
 }
 
+const resetTime = () => {
+  setMiliSeconds(0)
+  if(intervalId){
+    clearInterval(intervalId)
+    setIntervalId(0)
 
+  }
+}
 
   return (
 
@@ -79,12 +92,15 @@ const playTimer = () => {
       changeDifficulty={changeDifficulty}
       setStart = {changeStateGame}
       />:
-      <PantallaJuego 
+        stateGame === 1 ?
+        <PantallaJuego 
         numCartas={CartasNivel[level]}
         time={miliSeconds}
-      /> 
+        setRestart={restartGame}
+        setFinish={changeStateGame}
+      /> :<PantallaFinal setRestart={restartGame} />
     }
-     <PantallaFinal />
+
     
     </div>
   

@@ -25,7 +25,8 @@ body {
 }
 
 .text-right {
-  text-align: right;
+  position: relative;
+  top: 550px;
 }
 
 .middle {

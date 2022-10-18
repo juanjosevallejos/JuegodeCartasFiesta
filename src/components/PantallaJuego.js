@@ -1,31 +1,32 @@
 import Botones from "./Botones";
 import Cartas from './Cartas';
 import AleatorioCartas from "../logica/AleatorioCartas"
+import ConvertirTiempo from "../logica/ConvertirTiempo";
 import { useState,useEffect } from "react";
 
 
-export default function PantallaJuego(props){
+export default function PantallaJuego({numCartas}){
 
     
-    const [cartasArr, setCartasArr] = useState([])
+    const [cartasArr, setCartasArr] = useState([]);
 
 
     useEffect( () => {
-        setCartasArr( AleatorioCartas(props.numCartas) )
-    }, [props.numCartas])
+        setCartasArr( AleatorioCartas(numCartas) );
+    }, [numCartas]);
 
     const rotate = (id,set) => {
         setCartasArr( prevArr => {
             prevArr[id].rotate = true;
             prevArr[id].validating = 1;
-            return[...prevArr]
+            return[...prevArr];
         })
         console.log(cartasArr);
         setTimeout(()=> validate(), 500 );
     }
 
     const validate =  () => {
-        const validarCartas = cartasArr.filter( cartas => cartas.validating === 1)
+        const validarCartas = cartasArr.filter( (cartas) => cartas.validating === 1);
 
         if (validarCartas.length === 2){
 
@@ -46,13 +47,21 @@ export default function PantallaJuego(props){
                 console.log("elementos iguales");
                 setCartasArr((prevArr) => { 
                     prevArr[validarCartas[0].id].set = 1;
-                    prevArr[validarCartas[0].id].validating = 1;
+                    prevArr[validarCartas[0].id].validating = 0;
                     prevArr[validarCartas[1].id].set = 1;
-                    prevArr[validarCartas[1].id].validating = 1;
+                    prevArr[validarCartas[1].id].validating = 0;
 
                     return[...prevArr];
                 })
             }
+        }
+
+
+        const setCartas = cartasArr.filter( cartas => cartas.set === 0).length
+        if(setCartas === 0){
+
+
+        // props.setFinish(2)
         }
     }
 
@@ -71,7 +80,7 @@ export default function PantallaJuego(props){
 
                 </div>
                 <div className="PantallaJuego--time text-right">
-                <p>Time</p>
+                <p>Tiempo{ConvertirTiempo(props.time)}</p>
                 </div>
             </div>
 
@@ -102,7 +111,7 @@ export default function PantallaJuego(props){
 
             </div>   
             <div className="text-center">
-                <Botones label="Reiniciar juego" action={()=> {}}/>
+                {/* <Botones label="Reiniciar juego" action={props.setRestart}/> */}
             </div>
         </div>
     )
