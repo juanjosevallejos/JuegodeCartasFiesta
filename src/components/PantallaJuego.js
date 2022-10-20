@@ -49,14 +49,17 @@ export default function PantallaJuego({ numCartas }) {
           prevArr[validarCartas[1].id].set = 1;
           prevArr[validarCartas[1].id].validating = 0;
 
+          
 
+          // const query = `[data-bind="${validarCartas[0].bind}"]`
+          // const nodeList = document.querySelectorAll(query);
 
-          const query = `[data-bind="${validarCartas[0].bind}"]`
-          const nodeList = document.querySelectorAll(query);
+          // for (var item of nodeList) {
+          //   item.classList.add('d-none')
+          // }
 
-          for (var item of nodeList) {
-            item.classList.add('d-none')
-          }
+          
+
 
           /* console.log(validarCartas[0]);
           console.log(validarCartas[1]); */
