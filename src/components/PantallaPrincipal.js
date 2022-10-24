@@ -4,7 +4,9 @@ export default function PantallaPrincipal(props){
 
 
 
-    const levelText = ['facil','mediana','dificil']
+    const levelText = ['Facil','Mediana','Dificil']
+
+    const PanelAdm = ['Configuracion Del Juego']
 
     return(
 
@@ -17,6 +19,8 @@ export default function PantallaPrincipal(props){
          <div className="PantallaPrincipal--menu">
             <p>Seleccione el nivel</p>
             <Botones label={levelText[props.level]} action={props.changeDifficulty}></Botones>
+            <br></br>
+            <Botones label={PanelAdm} action={ () => props.setStart(2) }></Botones>
             <br></br>
             <Botones label="iniciar juego" action={ () => props.setStart(1) }></Botones>
          </div>

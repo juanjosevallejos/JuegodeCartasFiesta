@@ -1,4 +1,4 @@
-import Simbolos from "./Simbolos";
+import Simbolos from "./Simbolos"
 
 
 
@@ -20,7 +20,7 @@ export default function AleatorioCartas(numCartas){
                 bind: j,
                 rotate: false, 
                 validating: 0,
-                // fixed: 0 
+                fixed: 0 
             })
             i++
             j++ 

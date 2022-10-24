@@ -1,7 +1,10 @@
-import React, {useState} from 'react';
-import PantallaPrincipal from './components/PantallaPrincipal';
-import PantallaJuego from './components/PantallaJuego';
-import PantallaFinal from './components/PantallaFinal';
+import React, { useState } from "react";
+import PantallaPrincipal from "./components/PantallaPrincipal";
+import PantallaJuego from "./components/PantallaJuego";
+import PantallaFinal from "./components/PantallaFinal";
+
+
+import PanelAdm from "./components/PanelAdm";
 
 
 function App() {
@@ -20,6 +23,13 @@ function App() {
   }
 
 
+function App() {
+  const [level, setLevel] = useState(1);
+  const [stateGame, setStateGame] = useState(0);
+
+  const changeDifficulty = () => {
+    setLevel(level === 2 ? 0 : level + 1);
+  };
 
   
 
@@ -30,9 +40,8 @@ function App() {
   const CartasNivel = {
     0: 8,
     1: 16,
-    2: 24
-  }
-
+    2: 24,
+  };
   const restartGame = () =>{
       setStateGame(0)
       setLevel(0)
@@ -50,65 +59,31 @@ function App() {
 
 
 
+  //panel de administracion
 
+  // const PanelAdm = () => {
 
+  // }
 
+  //finalsegunnivel
 
-
-
-  const changeStateGame = ( value ) => {
-    setStateGame(value)
-    if(value === 1) playTimer()
-  }
-
-const playTimer = () => {
-  if(intervalId){
-    clearInterval(intervalId)
-    setIntervalId(0)
-  }
-  
-
-  const newIntervalId = setInterval ( ()=> {
-    setMiliSeconds ( miliSeconds => miliSeconds + 1000)
-  }, 1000)
-
-  setIntervalId(newIntervalId)
-}
-
-const resetTime = () => {
-  setMiliSeconds(0)
-  if(intervalId){
-    clearInterval(intervalId)
-    setIntervalId(0)
-
-  }
-}
+  const changeStateGame = (value) => {
+    setStateGame(value);
+  };
 
   return (
+    <div>
+      {stateGame === 0 && (
+        <PantallaPrincipal
+          level={level}
+          changeDifficulty={changeDifficulty}
+          setStart={changeStateGame}
+        />
+      )}
 
-    <div> 
-   
-
-
-    { stateGame === 0 ?
-      <PantallaPrincipal 
-      level={level} 
-      changeDifficulty={changeDifficulty}
-      setStart = {changeStateGame}
-
-      />:
-        stateGame === 1 ?
-        <PantallaJuego 
-        numCartas={CartasNivel[level]}
-        time={miliSeconds}
-        setRestart= {restartGame}
-      /> :<PantallaFinal/>
-    }
-
-    
-    </div>
-  
-  );
+      {stateGame === 1 && <PantallaJuego numCartas={CartasNivel[level]} />}
+      {stateGame === 2 && <PanelAdm />}
+</div>
+);
 }
-
 export default App;
