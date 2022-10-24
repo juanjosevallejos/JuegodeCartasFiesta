@@ -21,6 +21,10 @@ function App() {
 
 
 
+  
+
+
+
   //segun nivel
 
   const CartasNivel = {
@@ -32,7 +36,7 @@ function App() {
   const restartGame = () =>{
       setStateGame(0)
       setLevel(0)
-      resetTime(0)
+      resetTime()
   }
 
 
@@ -52,7 +56,7 @@ function App() {
 
 
 
-  const changeStateGame = (value) => {
+  const changeStateGame = ( value ) => {
     setStateGame(value)
     if(value === 1) playTimer()
   }
@@ -91,14 +95,14 @@ const resetTime = () => {
       level={level} 
       changeDifficulty={changeDifficulty}
       setStart = {changeStateGame}
+
       />:
         stateGame === 1 ?
         <PantallaJuego 
         numCartas={CartasNivel[level]}
         time={miliSeconds}
-        setRestart={restartGame}
-        setFinish={changeStateGame}
-      /> :<PantallaFinal setRestart={restartGame} />
+        setRestart= {restartGame}
+      /> :<PantallaFinal/>
     }
 
     
