@@ -1,9 +1,8 @@
-export default function PantallaFInal(props){
+
+export default function PantallaFinal(props){
     
     return(
-
-        <div></div>
-
+<div></div>
     )
 
 }

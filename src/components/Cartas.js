@@ -1,6 +1,9 @@
+
 import { useState } from "react";
 
+
 export default function Cartas(props) {
+
 
 
   //     const [frente, setFrente] = useState(false)

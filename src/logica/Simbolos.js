@@ -15,4 +15,4 @@ const Simbolos = {
 
 }
 
-export default Simbolos; 
+export default Simbolos;

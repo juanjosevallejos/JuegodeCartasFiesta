@@ -3,7 +3,25 @@ import PantallaPrincipal from "./components/PantallaPrincipal";
 import PantallaJuego from "./components/PantallaJuego";
 import PantallaFinal from "./components/PantallaFinal";
 
+
 import PanelAdm from "./components/PanelAdm";
+
+
+function App() {
+
+
+  const [ level,setLevel ] = useState(0)
+  const [ stateGame, setStateGame ] = useState(0)
+  
+
+  const [intervalId, setIntervalId] = useState(0)
+  const [miliSeconds, setMiliSeconds] = useState(0)
+
+
+  const changeDifficulty = () => { 
+    setLevel( level === 2 ? 0 : level + 1)
+  }
+
 
 function App() {
   const [level, setLevel] = useState(1);
@@ -13,6 +31,10 @@ function App() {
     setLevel(level === 2 ? 0 : level + 1);
   };
 
+  
+
+
+
   //segun nivel
 
   const CartasNivel = {
@@ -20,6 +42,22 @@ function App() {
     1: 16,
     2: 24,
   };
+  const restartGame = () =>{
+      setStateGame(0)
+      setLevel(0)
+      resetTime()
+  }
+
+
+
+
+
+
+ //finalsegunnivel
+
+
+
+
 
   //panel de administracion
 
@@ -45,8 +83,7 @@ function App() {
 
       {stateGame === 1 && <PantallaJuego numCartas={CartasNivel[level]} />}
       {stateGame === 2 && <PanelAdm />}
-    </div>
-  );
+</div>
+);
 }
-
 export default App;
