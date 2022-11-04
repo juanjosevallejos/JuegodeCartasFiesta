@@ -1,18 +1,38 @@
-const Simbolos = {
-    0:'fas fa-horse',
-    1:'fas fa-ambulance',
-    2:'fas fa-apple-alt',
-    3:'fas fa-bug',
-    4:'fas fa-clinic-medical',
-    5:'fas fa-award',
-    6:'fas fa-tractor',
-    7:'fas fa-bomb',
-    8:'fas fa-lock',
-    9:'fas fa-archway',
-    10:'fas fa-palette',
-    11:'fas fa-coffee',
-    
+import {
+  Celeste,
+  faker,
+  Gris,
+  morty,
+  Naranja,
+  pashaBiceps,
+  perry,
+  ricky,
+  Rojo,
+  tyler,
+  Verde,
+  Violeta,
+} from "../img/imagenes.js";
 
-}
+const Simbolos = [
+    {
+      0: Celeste,
+      1: Gris,
+      2: Naranja,
+      3: Rojo,
+      4: Verde,
+      5: Violeta,
+    },
+    {
+      0: pashaBiceps,
+      1: perry,
+      2: ricky,
+      3: tyler,
+      4: faker,
+      5: morty,
+    },
+    {
+
+    },
+];
 
 export default Simbolos;

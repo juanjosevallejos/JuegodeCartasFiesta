@@ -4,11 +4,21 @@ import AleatorioCartas from "../logica/AleatorioCartas";
 import { useState, useEffect } from "react";
 import Timer from "../logica/Timer";
 
-export default function PantallaJuego({ numCartas,props }) {
+export default function PantallaJuego({
+  numCartas,
+  difficulty,
+  simbolos,
+  resultados,
+  setResultados,
+  setStateGame,
+}) {
+  const [moves, setMoves] = useState(0);
   const [cartasArr, setCartasArr] = useState([]);
 
   useEffect(() => {
-    setCartasArr(AleatorioCartas(numCartas));
+    setCartasArr(AleatorioCartas(numCartas, simbolos));
+
+    
   }, [numCartas]);
 
   const rotate = (id, set) => {
@@ -17,18 +27,17 @@ export default function PantallaJuego({ numCartas,props }) {
       prevArr[id].validating = 1;
       return [...prevArr];
     });
-    console.log(cartasArr);
+    // console.log(cartasArr);
     setTimeout(() => validate(), 500);
   };
 
-
-
   const validate = () => {
     const validarCartas = cartasArr.filter((cartas) => cartas.validating === 1);
+    setMoves(moves + 1);
 
     if (validarCartas.length === 2) {
       if (validarCartas[0].bind !== validarCartas[1].bind) {
-        console.log("retornamos cartas por defecto ");
+        // console.log("retornamos cartas por defecto ");
 
         setCartasArr((prevArr) => {
           prevArr[validarCartas[0].id].rotate = false;
@@ -38,19 +47,27 @@ export default function PantallaJuego({ numCartas,props }) {
 
           return [...prevArr];
         });
-        
-      } 
-      
-      
-      else {
-        console.log("elementos iguales");
+      } else {
+        if (resultados.paresEncontrados + 1 === 6) {
+          setResultados({
+            ...resultados,
+            paresEncontrados: 6,
+            gana: true,
+            movimientos: moves,
+          });
+          setStateGame(4);
+        } else {
+          setResultados({
+            ...resultados,
+            paresEncontrados: resultados.paresEncontrados + 1,
+          });
+        }
+        // console.log("elementos iguales");
         setCartasArr((prevArr) => {
-          prevArr[validarCartas[0].id].set = 1; 
+          prevArr[validarCartas[0].id].set = 1;
           prevArr[validarCartas[0].id].validating = 0;
           prevArr[validarCartas[1].id].set = 1;
           prevArr[validarCartas[1].id].validating = 0;
-
-          
 
           // const query = `[data-bind="${validarCartas[0].bind}"]`
           // const nodeList = document.querySelectorAll(query);
@@ -59,43 +76,34 @@ export default function PantallaJuego({ numCartas,props }) {
           //   item.classList.add('d-none')
           // }
 
-          
-
-
           /* console.log(validarCartas[0]);
           console.log(validarCartas[1]); */
           return [...prevArr];
-
-          
-              
-
         });
       }
     }
   };
 
-
-
-
-
-
-
-
   return (
     <div className="PantallaJuego">
       <div className="PantallaJuego--score grid grid 2">
         <div className="PantallaJuego--moves">
-          <p>Movimientos</p>
+          <p>Movimientos{moves}</p>
         </div>
         <center>
-        <div className="tiempo">
-        <Timer></Timer>
-        </div>
+          <div className="tiempo">
+            <Timer
+              difficulty={difficulty}
+              setResultados={setResultados}
+              setStateGame={setStateGame}
+              moves={moves}
+              resultados={resultados}
+            />
+          </div>
         </center>
-        
       </div>
 
-      <div className="PantallaJuego--cartas grid grid-4"> 
+      <div className="PantallaJuego--cartas grid grid-4">
         {cartasArr
           .sort((a, b) => a.id - b.id)
           .map((cartas) => {
@@ -111,10 +119,10 @@ export default function PantallaJuego({ numCartas,props }) {
                 // onClick={changeFrente}
               />
             );
-          })} 
-      </div> 
-      <div className="text-center"> 
-        <Botones label="Reiniciar juego" action={() => {}} /> 
+          })}
+      </div>
+      <div className="text-center">
+        <Botones label="Reiniciar juego" action={() => {}} />
       </div>
     </div>
   );

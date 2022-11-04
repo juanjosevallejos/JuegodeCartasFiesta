@@ -3,8 +3,10 @@ import Simbolos from "./Simbolos"
 
 
 
-export default function AleatorioCartas(numCartas){
+export default function AleatorioCartas(numCartas = 12, simbolos){
     const halfCartas = numCartas / 2
+    // console.log(Simbolos[simbolos]);
+    let baraja = Simbolos[simbolos];
     const arr = []
     let i=0,j=0
 
@@ -16,7 +18,7 @@ export default function AleatorioCartas(numCartas){
          if( !arr.some(item => item.id === random)){
             arr.push({
                 id: random,
-                symbol: Simbolos[j],
+                symbol: baraja[j],
                 bind: j,
                 rotate: false, 
                 validating: 0,

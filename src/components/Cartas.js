@@ -1,7 +1,6 @@
 
 import { useState } from "react";
 
-
 export default function Cartas(props) {
 
 
@@ -55,7 +54,9 @@ export default function Cartas(props) {
 
         {props.rotate && (
           <div className="cartas--back middle">
-            <i className={props.symbol + " d-none"} id={"font-" + props.id}></i>
+            {/* <i className={props.symbol + " d-none"} id={"font-" + props.id}></i> */}
+            <img src={props.symbol} style={{width:'356px', height:'250px', overflow:'hidden'  }} alt="carta" className="d-none" id={"font-" + props.id}/>
+            {/* {console.log(props.symbol,'simbolos')} */}
           </div>
         )}
       </div>

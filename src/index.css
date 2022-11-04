@@ -9,7 +9,7 @@
 body {
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://th.bing.com/th/id/R.0ed93878ad190c0c2df292434da327d2?rik=3aJ3o8iRTK9PLQ&pid=ImgRaw&r=0);
+  background-image: url(https://weblogin.muninqn.gov.ar/assets/images/fondoWL.jpg);
   height: 100%;
 }
 
@@ -89,23 +89,20 @@ body {
 
 /* buttons */
 .Botones {
-  background-color: #6699FF;
-  color: #000000;
+  background-color: #20b2e7;
+  color: #fafafa;
   width: 150px;
   font-weight: bold;
   padding: 10px 20px;
   margin: 10px 0;
-  -webkit-box-shadow: 2px 2px 5px #000;
-          box-shadow: 2px 2px 5px #000;
   border-radius: 15px;
-  border: 3px solid #000000;
+  border: 3px solid #20b2e7;
   cursor: pointer;
 }
 
 /* game screen */
 .PantallaJuego {
-  padding: 20px;
-  top: 100%;
+  margin:200px;
 }
 
 .PantallaJuego--score {
@@ -118,7 +115,7 @@ body {
 }
 
 .tiempo{
-  color: #000000;
+  color: #000000 !important;   
 }
 
 .cartas {
@@ -146,12 +143,12 @@ body {
   border-radius: 20px;
 }
 
-.cartas--inner i {
+.cartas--inner img {
   font-size: 2em;
 }
 
 @media only screen and (min-width: 992px) {
-  .cartas--inner i {
+  .cartas--inner img {
     font-size: 4em;
   }
 }
@@ -161,6 +158,8 @@ body {
   width: 100%;
   height: 100%;
   border-radius: 15px;
+  margin:20px,20px,20px,20px;
+
 }
 
 .cartas--front {
@@ -170,7 +169,7 @@ body {
 }
 
 .cartas--back {
-  background-color: rgb(156, 129, 255);
+  /* background-color: rgb(156, 129, 255); */
   color:white;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
@@ -199,6 +198,30 @@ body {
 
 
 .tiempo{
+  margin-bottom: 50%;
   color: aqua;
   left: 50%;
+ 
+}
+
+.imagenes{
+  position: relative;
+}
+
+.puntajes{
+  margin: 100px;
+}
+
+
+.sorteo{
+  margin: 100px;
+  background-color: rgb(255, 255, 255);
+}
+
+
+.admin{
+ background-color: #fff;
+ margin: 12.5rem;
+ height: 10.4rem;
+ padding:20px;
 }
