@@ -50,7 +50,7 @@ const Sorteo = (props) => {
               // console.log(document.getElementById("dificultad").value);
               props.setStart(1);
               props.changeInstagram(document.getElementById("instagram").value);
-             props.channgeNombreApellido(document.getElementById("Nombre-Apellido").value);
+              props.channgeNombreApellido(document.getElementById("Nombre-Apellido").value);
               // props.numCartas(
               // console.log(document.getElementById("baraja").value);
             }}

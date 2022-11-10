@@ -1,9 +1,10 @@
-import React, { Children, useState } from "react";
+import React, { useState } from "react";
 import PantallaPrincipal from "./components/PantallaPrincipal";
 import PantallaJuego from "./components/PantallaJuego";
 import PantallaFinal from "./components/PantallaFinal";
-import Timer from "./logica/Timer";
+// import Timer from "./logica/Timer";
 import PanelAdm from "./components/PanelAdm";
+import Sorteo from "./components/Sorteo";
 
 function App() {
   let [level, setLevel] = useState(0);
@@ -83,7 +84,17 @@ function App() {
         />
       )}
 
-      {stateGame === 4 && <PantallaFinal resultados={resultados} />}
+      {stateGame === 3 && <Sorteo
+        level={level}
+        changeDifficulty={changeDifficulty}
+        setStart={changeStateGame}
+      />}
+
+      
+      {stateGame === 4 && <PantallaFinal resultados={resultados}
+      level={level}
+      changeDifficulty={changeDifficulty}
+      setStart={changeStateGame}  />}
     </div>
   );
 }

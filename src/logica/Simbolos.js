@@ -23,6 +23,7 @@ const Simbolos = [
       5: Violeta,
     },
     {
+         
       0: pashaBiceps,
       1: perry,
       2: ricky,
